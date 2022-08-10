@@ -1,0 +1,7 @@
+_build
+env
+env-*
+*.ipynb_checkpoints
+*.egg-info
+*.mypy_cache
+__pycache__
