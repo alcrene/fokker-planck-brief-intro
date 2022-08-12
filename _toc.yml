@@ -3,4 +3,9 @@ root: index
 
 chapters:
   - file: introduction
+  - file: derivation-kramers-moyal
+  - file: link-to-sde
+    title: Relating FPE to SDEs
+  - file: standard-solutions
+    title: Standard solutions
   - file: advection-diffusion

@@ -12,7 +12,7 @@ logo                        : ""
 exclude_patterns            : [_build, Thumbs.db, "**.DS_Store", "**.ipynb_checkpoints",
 
                                ".*", "**.egg-info", "*.mypy_cache", "**__pycache__",
-                               "**.smt", src, lib, env, "env-*"]
+                               "**.smt", src, lib, env, "env-*", "README.md"]
     # NB: 'data' only excludes the top-level directory.
     #     To exclude all subdirs named 'data', would would do "**data"
     #     (which we don't want, since there is a 'data' subpackage)
@@ -66,6 +66,10 @@ repository:
 
 #######################################################################################
 # Advanced and power-user settings
+
+bibtex_bibfiles:
+  - references.bib
+
 sphinx:
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
@@ -73,3 +77,19 @@ sphinx:
         .py:
             - jupytext.reads
             - fmt: py
+
+    # Use MathJax 3, which is much better for math-heavy documents
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js   # Use MathJax v3 instead of default v2
+    mathjax3_config:
+      # This dictionary is assigned as-is to window.MathJax; https://docs.mathjax.org/en/latest/input/tex/extensions/mathtools.html
+      tex:
+        packages:
+          "[+]": ["mathtools"]
+        macros: {
+          bm: ["{\\boldsymbol #1}",1],
+        }
+        # tags: 'none'
+      loader:
+        load: ['[tex]/mathtools']
+
+    bibtex_reference_style: author_year
