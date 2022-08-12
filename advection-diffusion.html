@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The Fokker-Planck equation: transporting probabilities &#8212; Fokker-Planck – Intro</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/custom.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"packages": {"[+]": ["mathtools"]}, "macros": {"bm": ["{\\boldsymbol #1}", 1]}}, "loader": {"load": ["[tex]/mathtools"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Standard solutions of the Fokker-Planck equation" href="standard-solutions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Fokker-Planck – Intro</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    A brief, opinionated introduction to the Fokker-Planck equation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="derivation-kramers-moyal.html">
+   Derivation of Fokker-Planck equation (Kramers-Moyal expansion)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="link-to-sde.html">
+   Relating FPE to SDEs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="standard-solutions.html">
+   Standard solutions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Fokker-Planck equation: transporting probabilities
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/bogus-repo/to-silence-warning"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bogus-repo/to-silence-warning/issues/new?title=Issue%20on%20page%20%2Fadvection-diffusion.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/advection-diffusion.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuity-equation">
+   Continuity Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advection-diffusion-equation">
+   Advection-Diffusion Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fokker-planck-equation">
+   Fokker-Planck Equation
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Fokker-Planck equation: transporting probabilities</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuity-equation">
+   Continuity Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advection-diffusion-equation">
+   Advection-Diffusion Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fokker-planck-equation">
+   Fokker-Planck Equation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="the-fokker-planck-equation-transporting-probabilities">
+<h1>The Fokker-Planck equation: transporting probabilities<a class="headerlink" href="#the-fokker-planck-equation-transporting-probabilities" title="Permalink to this headline">#</a></h1>
+<div class="admonition-abstract admonition">
+<p class="admonition-title">Abstract</p>
+<p>These notes are meant to provide a physical intuition for the Fokker-Planck
+equation by exploiting its similarity to the advection-diffusion equation.</p>
+</div>
+<section id="continuity-equation">
+<h2>Continuity Equation<a class="headerlink" href="#continuity-equation" title="Permalink to this headline">#</a></h2>
+<p>Let’s start with the continuity equation which essentially captures
+the (seemingly trivial) statement “stuff does not simply vanish”
+mathematically.</p>
+<p>Consider an arbitrary quantity with volume density <span class="math notranslate nohighlight">\(\rho=\rho(\bm{x},t)\)</span>,
+e.g., a dye dissolved in water. The total amount of the quantity in
+any given volume <span class="math notranslate nohighlight">\(V\)</span> is <span class="math notranslate nohighlight">\(\int_{V}\rho\,dV\)</span>. Excluding sources, sinks,
+and teleportation, the only possibility for the total amount to change
+is a flux of the quantity out of the surface <span class="math notranslate nohighlight">\(S\)</span> of the volume. The
+<em>flux</em> <span class="math notranslate nohighlight">\(\bm{j}=\bm{j}(\bm{x},t)\)</span> describes the change of the
+quantity per (infinitesimal) unit of time and (infinitesimal) area,
+thus we get the total change of the quantity by integrating the flux
+over the surface area:</p>
+<div class="math notranslate nohighlight" id="equation-eq-continuity">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-continuity" title="Permalink to this equation">#</a></span>\[
+\partial_{t}\int_{V}\rho\,dV=-\int_{S}\bm{j}\cdot d\bm{S}\,.
+\]</div>
+<p>This is the continuity equation in integral form. Using the divergence
+theorem, or Gauss’s theorem, <span class="math notranslate nohighlight">\(\int_{S}\bm{j}\cdot d\bm{S}=\int_{V}(\nabla\cdot\bm{j})\,dV\)</span>
+and the fact that the volume under consideration is arbitrary, we
+arrive at the <em>continuity equation</em> in differential form:</p>
+<div class="math notranslate nohighlight" id="equation-eq-continuity-equation">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-continuity-equation" title="Permalink to this equation">#</a></span>\[
+\partial_{t}\rho=-\nabla\cdot\bm{j}\,.
+\]</div>
+<p>Note that the only assumption entering the derivation is the absence
+of sources, sinks, and teleportation. Thus, the continuity equation
+holds for any locally conserved quantity: mass, energy, electrical
+charge, momentum, …</p>
+</section>
+<section id="advection-diffusion-equation">
+<h2>Advection-Diffusion Equation<a class="headerlink" href="#advection-diffusion-equation" title="Permalink to this headline">#</a></h2>
+<p>First, let us consider the situation where the quantity is transported
+by an externally imposed flow field <span class="math notranslate nohighlight">\(\bm{u}=\bm{u}(\bm{x},t)\)</span>, e.g.,
+a dye in a river. For a more complicated example, see <a class="reference external" href="https://www.youtube.com/watch?v=fuIBcCxW9Hs&amp;t=137s">this video</a>
+of a dye in a vortex. The <em>advective flux</em> is determined by the
+flow field:</p>
+<div class="math notranslate nohighlight" id="equation-eq-advective-flux">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-advective-flux" title="Permalink to this equation">#</a></span>\[
+\bm{j}_{\mathrm{adv}}=\bm{u}\rho\,.
+\]</div>
+<p>In combination with the continuity equation Eq. <a class="reference internal" href="#equation-eq-continuity-equation">(9)</a>,
+we get the <em>advection equation</em></p>
+<div class="math notranslate nohighlight" id="equation-eq-advection-equation">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-advection-equation" title="Permalink to this equation">#</a></span>\[
+\partial_{t}\rho=-\nabla\cdot(\bm{u}\rho)\,.
+\]</div>
+<p>If we knew the flow field of the vortex in the above video, plugging
+it into Eq. <a class="reference internal" href="#equation-eq-advection-equation">(11)</a> in combination with an
+appropriate initial distribution would yield the awesome dynamics
+of the dye.</p>
+<p>Next, let us take diffusion into account. According to <em>Fick’s
+law</em>, the diffusive flux is caused by a gradient in the density <span class="math notranslate nohighlight">\(\nabla\rho\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-diffusive-flux">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-diffusive-flux" title="Permalink to this equation">#</a></span>\[
+\bm{j}_{\mathrm{Fick}}=-D\nabla\rho \,.
+\]</div>
+<p>Here, the <em>diffusivity</em> <span class="math notranslate nohighlight">\(D=D(\bm{x},t)\)</span> is in the most general
+form a symmetric, positive definite matrix. If the diffusivity is
+a scalar the medium is isotropic; if the diffusivity does not depend
+on the position the medium is homogeneous. Plugging the diffusive
+flux into the continuity equation, we get the diffusion equation</p>
+<div class="math notranslate nohighlight" id="equation-eq-diffusion-equation">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-diffusion-equation" title="Permalink to this equation">#</a></span>\[
+\partial_{t}\rho=\nabla\cdot(D\nabla\rho) \,.
+\]</div>
+<p>See Fig. 5.12 on p. 140 in the <a class="reference external" href="http://ts.iup.uni-heidelberg.de/fileadmin/user_upload/misc/teaching/sp-2.2.pdf">soil physics lecture notes by Kurt Roth</a>
+for an example solution of the stationary diffusion equation <span class="math notranslate nohighlight">\(\nabla\cdot(D\nabla\rho)=0\)</span>
+in an heterogeneous medium (shown in Fig. 5.11 on p. 138).</p>
+<p>Finally, combining advective flux and diffusive flux, <span class="math notranslate nohighlight">\(\bm{j}=\bm{j}_{\mathrm{adv}}+\bm{j}_{\mathrm{Fick}}\)</span>,
+and the continuity equation we arrive at the <strong>advection-diffusion
+equation</strong></p>
+<div class="math notranslate nohighlight" id="equation-eq-advection-diffusion-equation">
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-advection-diffusion-equation" title="Permalink to this equation">#</a></span>\[
+\partial_{t}\rho=-\nabla\cdot(\bm{u}\rho)+\nabla\cdot(D\nabla\rho) \,.
+\]</div>
+<p>It describes the transport of a quantity due to advection and diffusion.
+For an interesting example of the interplay between advection and
+diffusion, let us briefly consider <em>Taylor dispersion</em> based
+on Fig. 4.2 on p. 106 in the soil physics lecture notes.</p>
+</section>
+<section id="fokker-planck-equation">
+<h2>Fokker-Planck Equation<a class="headerlink" href="#fokker-planck-equation" title="Permalink to this headline">#</a></h2>
+<p>The advection-diffusion equation Eq. <a class="reference internal" href="#equation-eq-advection-diffusion-equation">(14)</a>
+resembles the <em>Fokker-Planck equation</em> [<span id="id1"></span>, Eq. 1.16]</p>
+<div class="math notranslate nohighlight" id="equation-eq-fokker-planck-equation">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-fokker-planck-equation" title="Permalink to this equation">#</a></span>\[
+\partial_{t}p=-\partial_{i}D_{i}^{(1)}p+\partial_{i}\partial_{j}D_{ij}^{(2)}p.
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(D_{i}^{(1)}\)</span> is the <em>drift vector</em> and <span class="math notranslate nohighlight">\(D_{ij}^{(2)}\)</span>
+the <em>diffusion matrix</em>. Note that we use the sum convention.</p>
+<p>At first glance, the correspondence is <span class="math notranslate nohighlight">\(p=\rho\)</span>, <span class="math notranslate nohighlight">\(D_{i}^{(1)}=u_{i}\)</span>,
+and <span class="math notranslate nohighlight">\(D_{ij}^{(2)}=D_{ij}\)</span>. This makes sense: the quantity under consideration
+is the probability which is locally conserved, the drift acts as an
+externally imposed flow field, and the diffusion matrix equals the
+diffusivity. If the latter is independent of the position, this correspondence
+is indeed exact. Thus, in this case, the Fokker-Planck equation is
+the advection-diffusion equation for the probability density.</p>
+<p>In the general case, the situation is a bit more complicated. To see
+this, let us rewrite Eq. <code class="docutils literal notranslate"><span class="pre">eq:advection_diffusion_equation</span></code>
+into a Fokker-Planck equation,</p>
+<div class="math notranslate nohighlight">
+\[
+\partial_{t}\rho=-\partial_{i}u_{i}\rho+\partial_{i}D_{ij}\partial_{j}\rho=-\partial_{i}[u_{i}+(\partial_{j}D_{ij})]\rho+\partial_{i}\partial_{j}D_{ij}\rho,
+\]</div>
+<p>where we used the product rule in the last step. We see that a <em>spurious
+drift</em> term appears, i.e., the correct correspondence of the drift
+term is <span class="math notranslate nohighlight">\(D_{i}^{(1)}=u_{i}+\partial_{j}D_{ij}\)</span>.</p>
+<p>This is akin to the spurious drift depending on the interpretation
+of an underlying SDE. For the SDE <span class="math notranslate nohighlight">\(\dot{x}_{i}=h_{i}+g_{ij}\xi_{j}\)</span>
+where <span class="math notranslate nohighlight">\(\langle\xi_{i}(t)\rangle=0\)</span> and <span class="math notranslate nohighlight">\(\langle\xi_{i}(t)\xi_{j}(t^{\prime})\rangle=2\delta_{ij}\delta(t-t^{\prime})\)</span>
+we have <span id="id2">[]</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-4663d177-912e-415e-b650-305df4f02332">
+<span class="eqno">(16)<a class="headerlink" href="#equation-4663d177-912e-415e-b650-305df4f02332" title="Permalink to this equation">#</a></span>\[\begin{equation}
+D_{i}^{(1)}=h_{i}+2\lambda g_{kj}\partial_{k}g_{ij},\qquad D_{ij}^{(2)}=g_{ik}g_{jk},
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\in[0,1]\)</span> determines the interpretation: <span class="math notranslate nohighlight">\(\lambda=0\)</span>
+for Itô, <span class="math notranslate nohighlight">\(\lambda=1/2\)</span> for Stratonovich, and <span class="math notranslate nohighlight">\(\lambda=1\)</span> for Hänggi-Klimontovich
+(or kinetic). For the special case <span class="math notranslate nohighlight">\(g_{ij}=g_{i}\delta_{ij}\)</span> the
+diffusion matrix is diagonal, <span class="math notranslate nohighlight">\(D_{ij}^{(2)}=g_{i}^{2}\delta_{ij}\)</span>,
+and we can rewrite the drift as <span class="math notranslate nohighlight">\(D_{i}^{(1)}=h_{i}+\lambda\partial_{j}D_{ij}^{(2)}\)</span>.
+Thus, if we choose the Hänggi-Klimontovich interpretation <span class="math notranslate nohighlight">\(\lambda=1\)</span>,
+we get the direct correspondence <span class="math notranslate nohighlight">\(u_{i}=h_{i}\)</span> and <span class="math notranslate nohighlight">\(D_{ij}=g_{i}^{2}\delta_{ij}\)</span>.
+Put differently, the Hänggi-Klimontovich interpretation corresponds
+to the advection-diffusion equation. However, for arbitrary <span class="math notranslate nohighlight">\(g_{ij}\)</span>
+this correspondence does not hold (as far as I can see) because <span class="math notranslate nohighlight">\(2g_{kj}\partial_{k}g_{ij}\neq\partial_{j}g_{ik}g_{jk}\)</span>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="standard-solutions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Standard solutions of the Fokker-Planck equation</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexandre René and Alexander van Meegen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
