@@ -82,7 +82,7 @@ $$  (eq:diffusion_equation)
 
 See Fig. 5.12 on p. 140 in the [soil physics lecture notes by Kurt Roth](http://ts.iup.uni-heidelberg.de/fileadmin/user_upload/misc/teaching/sp-2.2.pdf)
 for an example solution of the stationary diffusion equation $\nabla\cdot(D\nabla\rho)=0$
-in an heterogeneous medium (shown in Fig. 5.11 on p. 138).
+in an heterogeneous medium (the diffusivity is shown in Fig. 5.11 on p. 138).
 
 Finally, combining advective flux and diffusive flux, $\bm{j}=\bm{j}_{\mathrm{adv}}+\bm{j}_{\mathrm{Fick}}$,
 and the continuity equation we arrive at the **advection-diffusion
@@ -118,7 +118,7 @@ is indeed exact. Thus, in this case, the Fokker-Planck equation is
 the advection-diffusion equation for the probability density.
 
 In the general case, the situation is a bit more complicated. To see
-this, let us rewrite Eq. `eq:advection_diffusion_equation`
+this, let us rewrite Eq. {eq}`eq:advection_diffusion_equation`
 into a Fokker-Planck equation,
 
 $$
