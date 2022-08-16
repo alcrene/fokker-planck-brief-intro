@@ -8,8 +8,7 @@ The presentation is split into three parts:
 - Tight relationship between stochastic differential equations and the FPE.
 - Picturing probability flow as advection-diffusion in a liquid.
 
-The first parts are based on the classic text by {cite:t}`
-riskenFokkerPlanckEquationMethods1996`.
+The first parts are based on the classic text by {cite:t}`riskenFokkerPlanckEquationMethods1996`.
 
 ```{image} ./figures/title-page-Risken-2nd-ed.png
 :alt: Risken Fokker-Planck eq - title page
