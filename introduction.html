@@ -138,6 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
    The Fokker-Planck equation: transporting probabilities
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -340,7 +345,7 @@ title="Print to PDF"
 </dd>
 </dl>
 <figure class="align-default" id="table-desc-levels">
-<a class="reference internal image-reference" href="figures/p6-table11-three-levels-description.png"><img alt="figures/p6-table11-three-levels-description.png" src="figures/p6-table11-three-levels-description.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="_images/p6-table11-three-levels-description.png"><img alt="_images/p6-table11-three-levels-description.png" src="_images/p6-table11-three-levels-description.png" style="width: 500px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">(Risken, Table 1.1)</span><a class="headerlink" href="#table-desc-levels" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -355,13 +360,13 @@ title="Print to PDF"
 </aside>
 <dl class="simple myst">
 <dt>Itô convention</dt><dd><div class="math notranslate nohighlight">
-\[ΔX(t_i) = f(t_i,X)Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}\]</div>
+\[ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}\]</div>
 </dd>
-<dt>Stratonovic convention</dt><dd><div class="math notranslate nohighlight">
-\[ΔX(t_i) = f(t_i,X)Δt + \frac{g(t_i,X(t_i)) + g(t_{i+1},X(t_{i+1}))}{2}ΔW(t_i)\]</div>
+<dt>Stratonovich convention</dt><dd><div class="math notranslate nohighlight">
+\[ΔX(t_i) = f(t_i,X(t_i))Δt + \frac{g(t_i,X(t_i)) + g(t_{i+1},X(t_{i+1}))}{2}ΔW(t_i)\]</div>
 </dd>
 <dt>Anticipatory (or Hänggi-Klimontovich) convention</dt><dd><div class="math notranslate nohighlight">
-\[ΔX(t_i) = f(t_i,X)Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)}\]</div>
+\[ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)}\]</div>
 </dd>
 </dl>
 <p>This ambiguity of convention arises because the infinitesimal limit of white noise is <em>mathematically</em> well-defined (for a given convention), but <em>non physical</em>.</p>
@@ -372,7 +377,7 @@ The <strong>Fokker-Planck equation</strong> is such a differential equation.</p>
 \frac{\partial p(t, x)}{\partial t} = - \sum_i \frac{\partial}{\partial x_i} \left[D_i^{(1)}(x) \, p(t,x)\right] + \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left[D_{ij}^{(2)}(x) \, p(t, x) \right]
 \]</div>
 <figure class="align-default" id="fig-density-3-times">
-<img alt="figures/p29-fig22-density-at-3-times.png" src="figures/p29-fig22-density-at-3-times.png" />
+<img alt="_images/p29-fig22-density-at-3-times.png" src="_images/p29-fig22-density-at-3-times.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">The kind of problem we want to solve: given an initial probability distribution, how does it evolve over time ?
 Often, but not always, the initial condition is a Dirac δ.

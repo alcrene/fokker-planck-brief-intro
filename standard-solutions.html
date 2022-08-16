@@ -138,6 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
    The Fokker-Planck equation: transporting probabilities
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -410,8 +415,8 @@ title="Print to PDF"
 <h2>Stationary solutions<a class="headerlink" href="#stationary-solutions" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="#Continuity-equation-form">continuity equation form</a> is especially useful for finding stationary solutions to the FPE. Example stationary solutions:</p>
 <ul class="simple">
-<li><p>Everything died to a fixed point: <span class="math notranslate nohighlight">\(p(t, x) = δ(x-x_0)\)</span></p></li>
-<li><p>Frozen position (e.g. Galton board)</p></li>
+<li><p>Everything dies to a fixed point: <span class="math notranslate nohighlight">\(p(t, x) = δ(x-x_0)\)</span></p></li>
+<li><p>Frozen position (e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Galton_board">Galton board</a>)</p></li>
 <li><p>Circulation</p></li>
 </ul>
 <p>A stationary solution is defined by <span class="math notranslate nohighlight">\(\frac{\partial p(t, x)}{\partial t} = 0\)</span>. Then</p>
@@ -427,7 +432,7 @@ J(x) &amp;= C
 </aside>
 <p>If <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>, then the only non-trivial solution is <span class="math notranslate nohighlight">\(J(x) = 0\)</span>. Thus we reduce the problem to a much simpler ODE:</p>
 <div class="math notranslate nohighlight" id="equation-eq-j-0-ode">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-j-0-ode" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-j-0-ode" title="Permalink to this equation">#</a></span>\[
 D^{(1)}(x) p(t, x) + \nabla \left(D^{(2)} p(t, x)\right) = 0
 \]</div>
 </section>
@@ -435,8 +440,8 @@ D^{(1)}(x) p(t, x) + \nabla \left(D^{(2)} p(t, x)\right) = 0
 <h2>Going further<a class="headerlink" href="#going-further" title="Permalink to this headline">#</a></h2>
 <p>Entire books are devoted to developing techniques for solving more difficult cases of the FPE</p>
 <ul class="simple">
-<li><p><em>The Fokker-Planck equation: methods of solution and applications</em> <span id="id1">[]</span></p></li>
-<li><p><em>Noise-induced transitions: theory and applications in physics, chemistry, and biology</em> <span id="id2">[]</span></p></li>
+<li><p><em>The Fokker-Planck equation: methods of solution and applications</em> <span id="id1">[<a class="reference internal" href="references.html#id3" title="H. Risken. The Fokker-Planck Equation: Methods of Solution and Applications. Number v. 18 in Springer Series in Synergetics. Springer-Verlag, New York, 2nd ed edition, 1996. ISBN 978-3-540-61530-9.">Risken, 1996</a>]</span></p></li>
+<li><p><em>Noise-induced transitions: theory and applications in physics, chemistry, and biology</em> <span id="id2">[<a class="reference internal" href="references.html#id4" title="Werner Horsthemke and René Lefever. Noise-Induced Transitions: Theory and Applications in Physics, Chemistry, and Biology. Number 15 in Springer Series in Synergetics. Springer, Berlin, 2. print edition, 2006. ISBN 978-3-540-11359-1.">Horsthemke and Lefever, 2006</a>]</span></p></li>
 </ul>
 </section>
 </section>

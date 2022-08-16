@@ -138,6 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
    The Fokker-Planck equation: transporting probabilities
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -320,50 +325,120 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="relating-fokker-planck-to-stochastic-differential-equations">
 <h1>Relating Fokker-Planck to stochastic differential equations<a class="headerlink" href="#relating-fokker-planck-to-stochastic-differential-equations" title="Permalink to this headline">#</a></h1>
 <p>(Adapted from Risken §3.3.2)</p>
-<p>Recall that the FPE are coefficients <span class="math notranslate nohighlight">\(D^{(n)}\)</span> are directly related to the moments of <span class="math notranslate nohighlight">\(p(t+τ, x' \mid t, x)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\frac{1}{n!} M_n(t,τ,n) &amp;= \frac{1}{n!} \langle \bigl(X(t+τ) - X(t)\bigr) \\
-\frac{1}{n!} \langle ΔX(t)\bigr) \\
-&amp;= D^{(n)}(t, x)τ + \mathcal{O}(τ^2) \,,
+<p>Recall that the FPE coefficients <span class="math notranslate nohighlight">\(D^{(1)}\)</span> and <span class="math notranslate nohighlight">\(D^{(2)}\)</span> are directly related to the moments of <span class="math notranslate nohighlight">\(p(t+Δt, x' \mid t, x)\)</span>:</p>
+<aside class="sticky margin sidebar">
+<p class="sidebar-title"></p>
+<p><span class="math notranslate nohighlight">\(D^{(n)} = \frac{1}{n! Δt} \langle ΔX(t)^n\rangle\)</span></p>
+</aside>
+<div class="math notranslate nohighlight" id="equation-eq-kramers-coeff-to-moments">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-kramers-coeff-to-moments" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\frac{1}{n!} M_n(t,Δt,n) &amp;= \frac{1}{n!} \langle \bigl(X(t+Δt) - X(t)\bigr)^n\rangle \\
+&amp;= \frac{1}{n!} \langle ΔX(t)^n\rangle \\
+&amp;= D^{(n)}(t, x)Δt + \mathcal{O}(Δt^2) \,.
 \end{aligned}\end{split}\]</div>
+<p>We want to relate these to the drift and diffusion terms of the Langevin equation:</p>
+<div class="math notranslate nohighlight">
+\[dX(t) = f(t,X(t)) dt + g(t,X(t)) dW \,.\]</div>
+<p><a class="reference external" href="#Introduction">Recall</a> that depending the chosen convention, integrating this expression over a small interval <span class="math notranslate nohighlight">\(Δt\)</span> produces different results:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Itô</p></td>
+<td><p><span class="math notranslate nohighlight">\(ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Stratonovich</p></td>
+<td><p><span class="math notranslate nohighlight">\(\begin{aligned}
+ΔX(t_i) &amp;= f(t_i,X(t_i))Δt + \frac{g(t_i,X(t_i)) + g(t_{i+1},X(t_{i+1}))}{2}ΔW(t_i) \\
+&amp;= f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i) + \frac{1}{2} \left.\frac{\partial g}{\partial x}\right\rvert_{t_i}ΔX(t_i) ΔW(t_i) \\
+&amp;= f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i) + \frac{1}{2} \left.\frac{\partial g}{\partial x}\right\rvert_{t_i}g(t_i,X(t_i)) ΔW(t_i)^2 + \mathcal{O}(Δt^{3/2})
+\end{aligned}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hänggi</p></td>
+<td><p><span class="math notranslate nohighlight">\(\begin{aligned}
+ΔX(t_i) &amp;= f(t_i,X(t_i))Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)} \\
+&amp;= f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i) + \hphantom{\frac{1}{2}} \left.\frac{\partial g}{\partial x}\right\rvert_{t_i}g(t_i,X(t_i)) ΔW(t_i)^2 + \mathcal{O}(Δt^{3/2})
+\end{aligned}\)</span></p></td>
+</tr>
+</tbody>
+</table>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<dl class="simple myst">
-<dt>Langevin equation</dt><dd><p><span class="math notranslate nohighlight">\(dX(t) = f(t,X(t)) dt + g(t,X(t)) dW\)</span></p>
-</dd>
-</dl>
-</aside>
-<p>To relate these coefficients to the <a class="reference external" href="#Introduction">Langevin equation</a>, <span id="id1"></span> writes</p>
-<div class="math notranslate nohighlight">
-\[X(t+τ) - X(t) = \int_t^{t+τ} f(t', X(t')) dt' + g(t', X(t')) dW(t')\]</div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Because <span class="math notranslate nohighlight">\(X\)</span> is non-differentiable, even in the limit <span class="math notranslate nohighlight">\(τ \to 0\)</span>, a first order approximation of <span class="math notranslate nohighlight">\(g\)</span> does not suffice.</p>
+<p>Risken uses the convention <span class="math notranslate nohighlight">\(\langle ΔW(t) ΔW(t')\rangle = 2\, δ(t)\, Δt\,.\)</span></p>
 </div>
-<p>One can then expand <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> so they only depend on the know quantities <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(x\)</span>:</p>
+</aside>
+<p>We also have the following <a class="reference external" href="https://slides.com/alexrene/a-mathematically-offensive-introduction-to-stochastic-calculus#/calculus-rules">rules for stochastic calculus</a>, which are valid in any convention:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-f(t+τ, X(t+τ)) &amp;= f(t, X(t)) + \frac{\partial f}{\partial x}_{t,X(t)} ΔX + \dotsb\\
-g(t+τ, X(t+τ)) &amp;= g(t, X(t)) + \frac{\partial g}{\partial x}_{t,X(t)} ΔX + \dotsb
+\langle ΔW(t) Δt \rangle = \langle Δt^2 \rangle &amp;= 0 \\
+\langle ΔW(t) \rangle &amp;= 0 \\
+\langle ΔW(t) ΔW(t') \rangle &amp;= δ(t)\, Δt \\
+\langle g(t, X(t)) ΔW(t) \rangle &amp;= g(t, X(t)) \langle ΔW(t) \rangle \,.
 \end{aligned}\end{split}\]</div>
-<p>Doing this recursively, eventually we obtain all terms of order <span class="math notranslate nohighlight">\(Δt\)</span>, and can evaluate<a class="footnote-reference brackets" href="#id3" id="id2">1</a> the integrals for the moments.</p>
+<p>Applying these rules we can evaluate the expectations in Eq. <a class="reference internal" href="#equation-eq-kramers-coeff-to-moments">(7)</a>.</p>
+<p><strong>Itô convention</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\langle ΔX(t_i) \rangle &amp;= f(t_i) Δt + g(t_i, X(t_i)) \underbrace{\langle ΔW(t_i) \rangle}_{=0} \\
+&amp;= f(t_i) Δt \\
+\langle ΔX(t_i)^2 \rangle &amp;= g(t_i, X(t_i))^2 \underbrace{\langle ΔW(t_i)^2 \rangle}_{=Δt} + \mathcal{O}(ΔtΔW(t_i)) \\
+&amp;= g(t_i, X(t_i))^2 Δt
+\end{aligned}\end{split}\]</div>
+<p><strong>Stratonovich convention</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\langle ΔX(t_i) \rangle &amp;= f(t_i) Δt + g(t_i, X(t_i)) \underbrace{\Bigl\langle ΔW(t_i) \Bigr\rangle}_{=0} + \frac{1}{2} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i)) \underbrace{\Bigl\langle ΔW(t_i)^2 \Bigr\rangle}_{=Δt} \\
+&amp;= f(t_i) Δt + \frac{1}{2} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i)) Δt \\
+\langle ΔX(t_i)^2 \rangle &amp;= g(t_i, X(t_i))^2 Δt
+\end{aligned}\end{split}\]</div>
+<p><strong>Hänggi-Klimontovich convention</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\langle ΔX(t_i) \rangle 
+&amp;= f(t_i) Δt + \hphantom{\frac{1}{2}} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i)) Δt \\
+\langle ΔX(t_i)^2 \rangle &amp;= g(t_i, X(t_i))^2 Δt
+\end{aligned}\end{split}\]</div>
+<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-eq-kramers-coeff-to-moments">(7)</a>, we get the correspondences listed in <a class="reference internal" href="#tab-fpe-sde-correspondence"><span class="std std-numref">Table 1</span></a></p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Although this approach should be equivalent to Risken’s, at present my result differs by a factor ½.</p>
+<p>If the convention <span class="math notranslate nohighlight">\(\langle dW(t) dW(t')\rangle = 2\, δ(t)\, dt\)</span> is used, the spurious drift terms must be multiplied by 2.</p>
 </div>
 </aside>
-<p>We will follow a similar approach here, but working with the differentials:</p>
-<div class="math notranslate nohighlight">
-\[ΔX(t) \stackrel{def}{=} \int_t^{t+Δt} f(t,X(t)) dt + g(t,X(t)) dW\]</div>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>How one evaluates the integrals still depends on the stochastic convention, and how to do this in general is not obvious.</p>
-</dd>
-</dl>
+<table class="table" id="tab-fpe-sde-correspondence">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Correspondence between Fokker-Planck and Langevin coefficients.</span><a class="headerlink" href="#tab-fpe-sde-correspondence" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>drift, <span class="math notranslate nohighlight">\(D^{(1)}\)</span></p></th>
+<th class="head"><p>diffusion, <span class="math notranslate nohighlight">\(D^{(2)}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Itô</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(f(t_i, X(t_i))\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{2} \,g(t_i, X(t_i))^2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Stratonovich</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(f(t_i, X(t_i)) + \frac{1}{2} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i))\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{2} \,g(t_i, X(t_i))^2\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Hänggi-Klimontovich</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(f(t_i, X(t_i)) + \hphantom{\frac{1}{2}} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i))\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{2} \,g(t_i, X(t_i))^2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>The additional drift appearing in the expressions under the Stratonovich and Hänggi-Klimontovich conventions is sometimes called the <strong>spurious drift</strong>, or the <strong>noise-induced drift</strong>. It only comes into play when <span class="math notranslate nohighlight">\(g\)</span> depends directly on <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </section>
 
     <script type="text/x-thebe-config">

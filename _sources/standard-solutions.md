@@ -32,8 +32,8 @@ Since total probability is conserved, it makes sense to think of probability as 
 
 The [continuity equation form](#Continuity-equation-form) is especially useful for finding stationary solutions to the FPE. Example stationary solutions:
 
-- Everything died to a fixed point: $p(t, x) = δ(x-x_0)$
-- Frozen position (e.g. Galton board)
+- Everything dies to a fixed point: $p(t, x) = δ(x-x_0)$
+- Frozen position (e.g. [Galton board](https://en.wikipedia.org/wiki/Galton_board))
 - Circulation
 
 A stationary solution is defined by $\frac{\partial p(t, x)}{\partial t} = 0$. Then
@@ -57,5 +57,5 @@ $$ (eq-J-0-ODE)
 
 Entire books are devoted to developing techniques for solving more difficult cases of the FPE
 
-- *The Fokker-Planck equation: methods of solution and applications* {cite:p}`riskenFokkerPlanckEquationMethods1989`
+- *The Fokker-Planck equation: methods of solution and applications* {cite:p}`riskenFokkerPlanckEquationMethods1996`
 - *Noise-induced transitions: theory and applications in physics, chemistry, and biology* {cite:p}`horsthemkeNoiseinducedTransitionsTheory2006`

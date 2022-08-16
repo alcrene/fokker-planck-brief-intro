@@ -56,6 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
     <link rel="prev" title="Standard solutions of the Fokker-Planck equation" href="standard-solutions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -135,6 +136,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    The Fokker-Planck equation: transporting probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
   </a>
  </li>
 </ul>
@@ -395,7 +401,7 @@ quantity per (infinitesimal) unit of time and (infinitesimal) area,
 thus we get the total change of the quantity by integrating the flux
 over the surface area:</p>
 <div class="math notranslate nohighlight" id="equation-eq-continuity">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-continuity" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-continuity" title="Permalink to this equation">#</a></span>\[
 \partial_{t}\int_{V}\rho\,dV=-\int_{S}\bm{j}\cdot d\bm{S}\,.
 \]</div>
 <p>This is the continuity equation in integral form. Using the divergence
@@ -403,7 +409,7 @@ theorem, or Gauss’s theorem, <span class="math notranslate nohighlight">\(\int
 and the fact that the volume under consideration is arbitrary, we
 arrive at the <em>continuity equation</em> in differential form:</p>
 <div class="math notranslate nohighlight" id="equation-eq-continuity-equation">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-continuity-equation" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-continuity-equation" title="Permalink to this equation">#</a></span>\[
 \partial_{t}\rho=-\nabla\cdot\bm{j}\,.
 \]</div>
 <p>Note that the only assumption entering the derivation is the absence
@@ -419,23 +425,23 @@ a dye in a river. For a more complicated example, see <a class="reference extern
 of a dye in a vortex. The <em>advective flux</em> is determined by the
 flow field:</p>
 <div class="math notranslate nohighlight" id="equation-eq-advective-flux">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-advective-flux" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-advective-flux" title="Permalink to this equation">#</a></span>\[
 \bm{j}_{\mathrm{adv}}=\bm{u}\rho\,.
 \]</div>
-<p>In combination with the continuity equation Eq. <a class="reference internal" href="#equation-eq-continuity-equation">(9)</a>,
+<p>In combination with the continuity equation Eq. <a class="reference internal" href="#equation-eq-continuity-equation">(10)</a>,
 we get the <em>advection equation</em></p>
 <div class="math notranslate nohighlight" id="equation-eq-advection-equation">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eq-advection-equation" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-advection-equation" title="Permalink to this equation">#</a></span>\[
 \partial_{t}\rho=-\nabla\cdot(\bm{u}\rho)\,.
 \]</div>
 <p>If we knew the flow field of the vortex in the above video, plugging
-it into Eq. <a class="reference internal" href="#equation-eq-advection-equation">(11)</a> in combination with an
+it into Eq. <a class="reference internal" href="#equation-eq-advection-equation">(12)</a> in combination with an
 appropriate initial distribution would yield the awesome dynamics
 of the dye.</p>
 <p>Next, let us take diffusion into account. According to <em>Fick’s
 law</em>, the diffusive flux is caused by a gradient in the density <span class="math notranslate nohighlight">\(\nabla\rho\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffusive-flux">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-diffusive-flux" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-diffusive-flux" title="Permalink to this equation">#</a></span>\[
 \bm{j}_{\mathrm{Fick}}=-D\nabla\rho \,.
 \]</div>
 <p>Here, the <em>diffusivity</em> <span class="math notranslate nohighlight">\(D=D(\bm{x},t)\)</span> is in the most general
@@ -444,7 +450,7 @@ a scalar the medium is isotropic; if the diffusivity does not depend
 on the position the medium is homogeneous. Plugging the diffusive
 flux into the continuity equation, we get the diffusion equation</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffusion-equation">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eq-diffusion-equation" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-diffusion-equation" title="Permalink to this equation">#</a></span>\[
 \partial_{t}\rho=\nabla\cdot(D\nabla\rho) \,.
 \]</div>
 <p>See Fig. 5.12 on p. 140 in the <a class="reference external" href="http://ts.iup.uni-heidelberg.de/fileadmin/user_upload/misc/teaching/sp-2.2.pdf">soil physics lecture notes by Kurt Roth</a>
@@ -454,7 +460,7 @@ in an heterogeneous medium (the diffusivity is shown in Fig. 5.11 on p. 138).<
 and the continuity equation we arrive at the <strong>advection-diffusion
 equation</strong></p>
 <div class="math notranslate nohighlight" id="equation-eq-advection-diffusion-equation">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-advection-diffusion-equation" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-advection-diffusion-equation" title="Permalink to this equation">#</a></span>\[
 \partial_{t}\rho=-\nabla\cdot(\bm{u}\rho)+\nabla\cdot(D\nabla\rho) \,.
 \]</div>
 <p>It describes the transport of a quantity due to advection and diffusion.
@@ -464,10 +470,10 @@ on Fig. 4.2 on p. 106 in the soil physics lecture notes.</p>
 </section>
 <section id="fokker-planck-equation">
 <h2>Fokker-Planck Equation<a class="headerlink" href="#fokker-planck-equation" title="Permalink to this headline">#</a></h2>
-<p>The advection-diffusion equation Eq. <a class="reference internal" href="#equation-eq-advection-diffusion-equation">(14)</a>
-resembles the <em>Fokker-Planck equation</em> [<span id="id1"></span>, Eq. 1.16]</p>
+<p>The advection-diffusion equation Eq. <a class="reference internal" href="#equation-eq-advection-diffusion-equation">(15)</a>
+resembles the <em>Fokker-Planck equation</em> (Eq. <a class="reference internal" href="derivation-kramers-moyal.html#equation-eq-fpe-higher-dim">(6)</a>, also Eq. 1.16 in <span id="id1">[<a class="reference internal" href="references.html#id3" title="H. Risken. The Fokker-Planck Equation: Methods of Solution and Applications. Number v. 18 in Springer Series in Synergetics. Springer-Verlag, New York, 2nd ed edition, 1996. ISBN 978-3-540-61530-9.">Risken, 1996</a>]</span>):</p>
 <div class="math notranslate nohighlight" id="equation-eq-fokker-planck-equation">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eq-fokker-planck-equation" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-fokker-planck-equation" title="Permalink to this equation">#</a></span>\[
 \partial_{t}p=-\partial_{i}D_{i}^{(1)}p+\partial_{i}\partial_{j}D_{ij}^{(2)}p.
 \]</div>
 <p>Here, <span class="math notranslate nohighlight">\(D_{i}^{(1)}\)</span> is the <em>drift vector</em> and <span class="math notranslate nohighlight">\(D_{ij}^{(2)}\)</span>
@@ -480,7 +486,7 @@ diffusivity. If the latter is independent of the position, this correspondence
 is indeed exact. Thus, in this case, the Fokker-Planck equation is
 the advection-diffusion equation for the probability density.</p>
 <p>In the general case, the situation is a bit more complicated. To see
-this, let us rewrite Eq. <a class="reference internal" href="#equation-eq-advection-diffusion-equation">(14)</a>
+this, let us rewrite Eq. <a class="reference internal" href="#equation-eq-advection-diffusion-equation">(15)</a>
 into a Fokker-Planck equation,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -492,9 +498,9 @@ term is <span class="math notranslate nohighlight">\(D_{i}^{(1)}=u_{i}+\partial_
 <p>This is akin to the spurious drift depending on the interpretation
 of an underlying SDE. For the SDE <span class="math notranslate nohighlight">\(\dot{x}_{i}=h_{i}+g_{ij}\xi_{j}\)</span>
 where <span class="math notranslate nohighlight">\(\langle\xi_{i}(t)\rangle=0\)</span> and <span class="math notranslate nohighlight">\(\langle\xi_{i}(t)\xi_{j}(t^{\prime})\rangle=2\delta_{ij}\delta(t-t^{\prime})\)</span>
-we have <span id="id2">[]</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-209a4b58-ee9e-46ee-9f84-76681ff9e229">
-<span class="eqno">(16)<a class="headerlink" href="#equation-209a4b58-ee9e-46ee-9f84-76681ff9e229" title="Permalink to this equation">#</a></span>\[\begin{equation}
+we have <span id="id2">[<a class="reference internal" href="references.html#id2" title="R. L. Stratonovich. Some Markov methods in the theory of stochastic processes in nonlinear dynamical systems, pages 16–71. Volume 1. Cambridge University Press, 1989. doi:10.1017/CBO9780511897818.004.">Stratonovich, 1989</a>]</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-66ce3c2d-6451-4989-861d-9ca6e16d1afd">
+<span class="eqno">(17)<a class="headerlink" href="#equation-66ce3c2d-6451-4989-861d-9ca6e16d1afd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 D_{i}^{(1)}=h_{i}+2\lambda g_{kj}\partial_{k}g_{ij},\qquad D_{ij}^{(2)}=g_{ik}g_{jk},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\in[0,1]\)</span> determines the interpretation: <span class="math notranslate nohighlight">\(\lambda=0\)</span>
@@ -543,6 +549,13 @@ this correspondence does not hold (as far as I can see) because <span class="mat
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Standard solutions of the Fokker-Planck equation</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="references.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
