@@ -100,7 +100,7 @@ on Fig. 4.2 on p. 106 in the soil physics lecture notes.
 ## Fokker-Planck Equation
 
 The advection-diffusion equation Eq. {eq}`eq:advection_diffusion_equation`
-resembles the *Fokker-Planck equation* [{cite:label}`riskenFokkerPlanckEquationMethods1996`, Eq. 1.16]
+resembles the *Fokker-Planck equation* (Eq. {eq}`eq-fpe-higher-dim`, also Eq. 1.16 in {cite:p}`riskenFokkerPlanckEquationMethods1996`):
 
 $$
 \partial_{t}p=-\partial_{i}D_{i}^{(1)}p+\partial_{i}\partial_{j}D_{ij}^{(2)}p.

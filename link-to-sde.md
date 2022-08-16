@@ -40,7 +40,7 @@ $$dX(t) = f(t,X(t)) dt + g(t,X(t)) dW \,.$$
 
 ::::{margin}
 :::{caution}
-Risken uses the convention $\langle ΔW(t) ΔW(t')\rangle = 2\, δ(t)\, dt$.
+Risken uses the convention $\langle ΔW(t) ΔW(t')\rangle = 2\, δ(t)\, Δt\,.$
 :::
 ::::
 We also have the following [rules for stochastic calculus](https://slides.com/alexrene/a-mathematically-offensive-introduction-to-stochastic-calculus#/calculus-rules), which are valid in any convention:
@@ -81,6 +81,11 @@ $$\begin{aligned}
 
 Substituting these results back into Eq. {eq}`eq-kramers-coeff-to-moments`, we get the correspondences listed in {numref}`tab-fpe-sde-correspondence`
 
+::::{margin}
+:::{caution}
+If the convention $\langle dW(t) dW(t')\rangle = 2\, δ(t)\, dt$ is used, the spurious drift terms must be multiplied by 2.
+:::
+::::
 ```{list-table}  Correspondence between Fokker-Planck and Langevin coefficients.
 :header-rows: 1
 :name: tab-fpe-sde-correspondence
