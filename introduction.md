@@ -32,13 +32,13 @@ All of these conventions are defined in terms of *finite* intervals.
 :::
 ::::
 Itô convention
-~ $$ΔX(t_i) = f(t_i,X)Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}$$
+~ $$ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}$$
 
-Stratonovic convention
-~ $$ΔX(t_i) = f(t_i,X)Δt + \frac{g(t_i,X(t_i)) + g(t_{i+1},X(t_{i+1}))}{2}ΔW(t_i)$$
+Stratonovich convention
+~ $$ΔX(t_i) = f(t_i,X(t_i))Δt + \frac{g(t_i,X(t_i)) + g(t_{i+1},X(t_{i+1}))}{2}ΔW(t_i)$$
 
 Anticipatory (or Hänggi-Klimontovich) convention
-~ $$ΔX(t_i) = f(t_i,X)Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)}$$
+~ $$ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)}$$
 
 This ambiguity of convention arises because the infinitesimal limit of white noise is *mathematically* well-defined (for a given convention), but *non physical*.
 

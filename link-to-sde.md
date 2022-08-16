@@ -2,43 +2,101 @@
 
 (Adapted from Risken §3.3.2)
 
-Recall that the FPE are coefficients $D^{(n)}$ are directly related to the moments of $p(t+τ, x' \mid t, x)$:
-
-$$\begin{aligned}
-\frac{1}{n!} M_n(t,τ,n) &= \frac{1}{n!} \langle \bigl(X(t+τ) - X(t)\bigr) \\
-\frac{1}{n!} \langle ΔX(t)\bigr) \\
-&= D^{(n)}(t, x)τ + \mathcal{O}(τ^2) \,,
-\end{aligned}$$
+Recall that the FPE coefficients $D^{(1)}$ and $D^{(2)}$ are directly related to the moments of $p(t+Δt, x' \mid t, x)$:
 
 :::{margin}
-Langevin equation
-~ $dX(t) = f(t,X(t)) dt + g(t,X(t)) dW$
+:class: sticky
+
+$D^{(n)} = \frac{1}{n! Δt} \langle ΔX(t)^n\rangle$
 :::
-To relate these coefficients to the [Langevin equation](#Introduction), {cite:ct}`riskenFokkerPlanckEquationMethods1996` writes
-
-$$X(t+τ) - X(t) = \int_t^{t+τ} f(t', X(t')) dt' + g(t', X(t')) dW(t')$$
-
-:::{caution}
-Because $X$ is non-differentiable, even in the limit $τ \to 0$, a first order approximation of $g$ does not suffice.
-:::
-
-One can then expand $f$ and $g$ so they only depend on the know quantities $t$ and $x$:
-
 $$\begin{aligned}
-f(t+τ, X(t+τ)) &= f(t, X(t)) + \frac{\partial f}{\partial x}_{t,X(t)} ΔX + \dotsb\\
-g(t+τ, X(t+τ)) &= g(t, X(t)) + \frac{\partial g}{\partial x}_{t,X(t)} ΔX + \dotsb
-\end{aligned}$$
+\frac{1}{n!} M_n(t,Δt,n) &= \frac{1}{n!} \langle \bigl(X(t+Δt) - X(t)\bigr)^n\rangle \\
+&= \frac{1}{n!} \langle ΔX(t)^n\rangle \\
+&= D^{(n)}(t, x)Δt + \mathcal{O}(Δt^2) \,.
+\end{aligned}$$  (eq-kramers-coeff-to-moments)
 
-Doing this recursively, eventually we obtain all terms of order $Δt$, and can evaluate[^1] the integrals for the moments.
+We want to relate these to the drift and diffusion terms of the Langevin equation:
 
-[^1]: How one evaluates the integrals still depends on the stochastic convention, and how to do this in general is not obvious.
+$$dX(t) = f(t,X(t)) dt + g(t,X(t)) dW \,.$$
+
+[Recall](#Introduction) that depending the chosen convention, integrating this expression over a small interval $Δt$ produces different results:
+```{list-table}
+:header-rows: 0
+
+* - Itô
+  - $ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}$
+* - Stratonovich
+  - $\begin{aligned}
+  ΔX(t_i) &= f(t_i,X(t_i))Δt + \frac{g(t_i,X(t_i)) + g(t_{i+1},X(t_{i+1}))}{2}ΔW(t_i) \\
+  &= f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i) + \frac{1}{2} \left.\frac{\partial g}{\partial x}\right\rvert_{t_i}ΔX(t_i) ΔW(t_i) \\
+  &= f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i) + \frac{1}{2} \left.\frac{\partial g}{\partial x}\right\rvert_{t_i}g(t_i,X(t_i)) ΔW(t_i)^2 + \mathcal{O}(Δt^{3/2})
+  \end{aligned}$
+* - Hänggi
+  - $\begin{aligned}
+  ΔX(t_i) &= f(t_i,X(t_i))Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)} \\
+  &= f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i) + \hphantom{\frac{1}{2}} \left.\frac{\partial g}{\partial x}\right\rvert_{t_i}g(t_i,X(t_i)) ΔW(t_i)^2 + \mathcal{O}(Δt^{3/2})
+  \end{aligned}$
+```
 
 ::::{margin}
 :::{caution}
-Although this approach should be equivalent to Risken's, at present my result differs by a factor ½.
+Risken uses the convention $\langle ΔW(t) ΔW(t')\rangle = 2\, δ(t)\, dt$.
 :::
 ::::
-We will follow a similar approach here, but working with the differentials:
+We also have the following [rules for stochastic calculus](https://slides.com/alexrene/a-mathematically-offensive-introduction-to-stochastic-calculus#/calculus-rules), which are valid in any convention:
 
-$$ΔX(t) \stackrel{def}{=} \int_t^{t+Δt} f(t,X(t)) dt + g(t,X(t)) dW$$
+$$\begin{aligned}
+\langle ΔW(t) Δt \rangle = \langle Δt^2 \rangle &= 0 \\
+\langle ΔW(t) \rangle &= 0 \\
+\langle ΔW(t) ΔW(t') \rangle &= δ(t)\, Δt \\
+\langle g(t, X(t)) ΔW(t) \rangle &= g(t, X(t)) \langle ΔW(t) \rangle \,.
+\end{aligned}$$
 
+Applying these rules we can evaluate the expectations in Eq. {eq}`eq-kramers-coeff-to-moments`.
+
+**Itô convention**
+
+$$\begin{aligned}
+\langle ΔX(t_i) \rangle &= f(t_i) Δt + g(t_i, X(t_i)) \underbrace{\langle ΔW(t_i) \rangle}_{=0} \\
+&= f(t_i) Δt \\
+\langle ΔX(t_i)^2 \rangle &= g(t_i, X(t_i))^2 \underbrace{\langle ΔW(t_i)^2 \rangle}_{=Δt} + \mathcal{O}(ΔtΔW(t_i)) \\
+&= g(t_i, X(t_i))^2 Δt
+\end{aligned}$$
+
+**Stratonovich convention**
+
+$$\begin{aligned}
+\langle ΔX(t_i) \rangle &= f(t_i) Δt + g(t_i, X(t_i)) \underbrace{\Bigl\langle ΔW(t_i) \Bigr\rangle}_{=0} + \frac{1}{2} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i)) \underbrace{\Bigl\langle ΔW(t_i)^2 \Bigr\rangle}_{=Δt} \\
+&= f(t_i) Δt + \frac{1}{2} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i)) Δt \\
+\langle ΔX(t_i)^2 \rangle &= g(t_i, X(t_i))^2 Δt
+\end{aligned}$$
+
+**Hänggi-Klimontovich convention**
+
+$$\begin{aligned}
+\langle ΔX(t_i) \rangle 
+&= f(t_i) Δt + \hphantom{\frac{1}{2}} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i)) Δt \\
+\langle ΔX(t_i)^2 \rangle &= g(t_i, X(t_i))^2 Δt
+\end{aligned}$$
+
+Substituting these results back into Eq. {eq}`eq-kramers-coeff-to-moments`, we get the correspondences listed in {numref}`tab-fpe-sde-correspondence`
+
+```{list-table}  Correspondence between Fokker-Planck and Langevin coefficients.
+:header-rows: 1
+:name: tab-fpe-sde-correspondence
+
+* - 
+  - drift, $D^{(1)}$
+  - diffusion, $D^{(2)}$
+* - **Itô**
+  - $f(t_i, X(t_i))$
+  - $\frac{1}{2} \,g(t_i, X(t_i))^2$
+* - **Stratonovich**
+  - $f(t_i, X(t_i)) + \frac{1}{2} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i))$
+  - $\frac{1}{2} \,g(t_i, X(t_i))^2$
+* - **Hänggi-Klimontovich**
+  - $f(t_i, X(t_i)) + \hphantom{\frac{1}{2}} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i))$
+  - $\frac{1}{2} \,g(t_i, X(t_i))^2$
+```
+
+The additional drift appearing in the expressions under the Stratonovich and Hänggi-Klimontovich conventions is sometimes called the **spurious drift**, or the **noise-induced drift**. It only comes into play when $g$ depends directly on $X$.
