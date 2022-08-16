@@ -60,7 +60,7 @@ latex:
 #  notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
 
 repository:
-  url: https://github.com/bogus-repo/to-silence-warning
+  url: https://github.com/alcrene/fokker-planck-brief-intro
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : main  # Which branch of the repository should be used when creating links
 
