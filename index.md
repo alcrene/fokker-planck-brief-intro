@@ -6,7 +6,7 @@ The presentation is split into three parts:
 
 - Derivation of the Fokker-Planck equation (FPE) from the Kramers-Moyal expansion
 - Tight relationship between stochastic differential equations and the FPE.
-- Picturing probability flow as advection-diffusion in a liquid.
+- Picturing probability flow as advection-diffusion in a fluid.
 
 The first parts are based on the classic text by {cite:t}`riskenFokkerPlanckEquationMethods1996`.
 

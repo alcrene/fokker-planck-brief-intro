@@ -1,6 +1,6 @@
 # Introduction
 
-In previous presentations [[AR](https://slides.com/alexrene/a-mathematically-offensive-introduction-to-stochastic-calculus), AvM] we talked about the stochastic differential equations (middle box in {numref}`table-desc-levels`). Examples:
+In previous presentations, we [[AR](https://slides.com/alexrene/a-mathematically-offensive-introduction-to-stochastic-calculus), AvM] talked about stochastic differential equations (middle box in {numref}`table-desc-levels`). Examples:
 
 :::{margin}
 :class: sticky
@@ -40,10 +40,10 @@ Stratonovich convention
 Anticipatory (or Hänggi-Klimontovich) convention
 ~ $$ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)}$$
 
-This ambiguity of convention arises because the infinitesimal limit of white noise is *mathematically* well-defined (for a given convention), but *non physical*.
+This ambiguity of convention arises because the infinitesimal limit of white noise is *mathematically* well-defined (within a given convention), but *non physical*.
 
-However, the distribution $p(X)$ *is* physical, so a differential equation for $p(X)$ should not suffer from ambiguity.
-The **Fokker-Planck equation** is such a differential equation.
+A full solution to a Langevin equation typically takes the form of a probability density function (PDF), which, if the system is Markovian, can be written as $p(t, X)$. Now, this PDF *is* physical, so a differential equation for $p(t, X)$ should not suffer from ambiguity.
+The **Fokker-Planck equation** is such a differential equation:
 
 $$
 \frac{\partial p(t, x)}{\partial t} = - \sum_i \frac{\partial}{\partial x_i} \left[D_i^{(1)}(x) \, p(t,x)\right] + \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left[D_{ij}^{(2)}(x) \, p(t, x) \right]
@@ -58,9 +58,9 @@ Often, but not always, the initial condition is a Dirac δ.
 ```
 
 A **stochastic process** is a generalization of a random variable. Intuitively, we assign to each $t \in \mathbb{R}$ a random variable (as suggested by {numref}`fig-density-3-times`). More precisely, to any countable set of times, the process associates a joint distribution. So if $x \in \mathbb{R^N}$,
-- $p(t_1, x_1)$ is a random variable on $\mathbb{R}^N$
-- $p(t_2, x_2, t_1, x_1)$ is a random variable on $\mathbb{R}^{2N}$
-- $p(t_3, x_3, t_2, x_2, t_1, x_1)$ is a random variable on $\mathbb{R}^{3N}$
+- $p(t_1, x_1)$ is the PDF of a random variable on $\mathbb{R}^N$;
+- $p(t_2, x_2, t_1, x_1)$ is the PDF of a random variable on $\mathbb{R}^{2N}$;
+- $p(t_3, x_3, t_2, x_2, t_1, x_1)$ is the PDF of a random variable on $\mathbb{R}^{3N}$;
 - etc.
 
 One obtains a lower dimensional distribution by *marginalising* over certain time points:

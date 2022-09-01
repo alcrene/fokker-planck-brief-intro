@@ -25,16 +25,16 @@ $$\begin{aligned}
 where $J(x)$ is the **probability current**.
 
 :::{note}
-Since total probability is conserved, it makes sense to think of probability as flowing one cell $[x, x + dx)$ to its neighbours.
+Since total probability is conserved, it makes sense to think of probability as flowing from one cell $[x, x + dx)$ to its neighbours.
 :::
 
 ## Stationary solutions
 
 The [continuity equation form](#Continuity-equation-form) is especially useful for finding stationary solutions to the FPE. Example stationary solutions:
 
-- Everything dies to a fixed point: $p(t, x) = δ(x-x_0)$
-- Frozen position (e.g. [Galton board](https://en.wikipedia.org/wiki/Galton_board))
-- Circulation
+- Everything dies to a fixed point: $p(t, x) = δ(x-x_0)$.
+- Frozen position (e.g. [Galton board](https://en.wikipedia.org/wiki/Galton_board)).
+- Circulation.
 
 A stationary solution is defined by $\frac{\partial p(t, x)}{\partial t} = 0$. Then
 
@@ -45,17 +45,17 @@ J(x) &= C
 \end{aligned}$$
 
 :::{margin}
-Otherwise the normalization condition $\int p(t,x) dx = 1$ cannot be satisfied.
+If $J(x) \neq 0$, the normalization condition $\int p(t,x) dx = 1$ cannot be satisfied.
 :::
 If $x \in \mathbb{R}^n$, then the only non-trivial solution is $J(x) = 0$. Thus we reduce the problem to a much simpler ODE:
 
 $$
-D^{(1)}(x) p(t, x) + \nabla \left(D^{(2)} p(t, x)\right) = 0
+D^{(1)}(x) p(t, x) + \nabla \left(D^{(2)} p(t, x)\right) = 0 \,.
 $$ (eq-J-0-ODE)
 
 ## Going further
 
-Entire books are devoted to developing techniques for solving more difficult cases of the FPE
+Entire books are devoted to developing techniques for solving more difficult cases of the FPE; for example
 
-- *The Fokker-Planck equation: methods of solution and applications* {cite:p}`riskenFokkerPlanckEquationMethods1996`
-- *Noise-induced transitions: theory and applications in physics, chemistry, and biology* {cite:p}`horsthemkeNoiseinducedTransitionsTheory2006`
+- *The Fokker-Planck equation: methods of solution and applications* {cite:p}`riskenFokkerPlanckEquationMethods1996`;
+- *Noise-induced transitions: theory and applications in physics, chemistry, and biology* {cite:p}`horsthemkeNoiseinducedTransitionsTheory2006`.

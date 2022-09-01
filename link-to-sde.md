@@ -24,7 +24,7 @@ $$dX(t) = f(t,X(t)) dt + g(t,X(t)) dW \,.$$
 :header-rows: 0
 
 * - Itô
-  - $ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}$
+  - $ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\hphantom{+ g(t_{i+1},X(t_{i+1}))}$
 * - Stratonovich
   - $\begin{aligned}
   ΔX(t_i) &= f(t_i,X(t_i))Δt + \frac{g(t_i,X(t_i)) + g(t_{i+1},X(t_{i+1}))}{2}ΔW(t_i) \\
@@ -79,7 +79,7 @@ $$\begin{aligned}
 \langle ΔX(t_i)^2 \rangle &= g(t_i, X(t_i))^2 Δt
 \end{aligned}$$
 
-Substituting these results back into Eq. {eq}`eq-kramers-coeff-to-moments`, we get the correspondences listed in {numref}`tab-fpe-sde-correspondence`
+Substituting these results back into Eq. {eq}`eq-kramers-coeff-to-moments`, we get the correspondences listed in {numref}`tab-fpe-sde-correspondence`.
 
 ::::{margin}
 :::{caution}

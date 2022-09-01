@@ -38,7 +38,7 @@ $$\begin{aligned}
 &= 1 + \sum_{n=1}^{\infty} \frac{(iu)^n}{n!} M_n(t,τ, x') \,;
 \end{aligned}$$
 
-and invert it to get back the probability
+and apply the inverse transform to get back the probability
 
 $$\begin{aligned}
 p(t+τ,x | t, x') &= \frac{1}{2π} \int_{-\infty}^\infty e^{-iu(x-x')} \varphi(t,τ,u,x') du \\
@@ -66,7 +66,7 @@ Substituting back into {eq}`eq-t-plus-tau`,
 
 $$\begin{aligned}
 p(t + τ, x) - p(t, x) &= \frac{\partial p(t, x)}{\partial t} τ + \mathcal{O}(τ^2) \\
-\int p(t + τ, x | x', t) p(t, x') dx - p(t, x) &= p(t, x) - p(t, x) + \sum_{n=1}^{\infty} \left(\frac{\partial}{\partial x}\right)^n M_n(t,τ, x) p(t, x) \,.
+\int p(t + τ, x | x', t) p(t, x') dx' - p(t, x) &= p(t, x) - p(t, x) + \sum_{n=1}^{\infty} \left(\frac{\partial}{\partial x}\right)^n M_n(t,τ, x) p(t, x) \,.
 \end{aligned}$$
 
 We now **assume that each moment can itself be expanded to first order**:
@@ -86,7 +86,7 @@ which leads to the **Kramers-Moyal expansion**:
 %Kramers-Moyal expansion
 %~ $\frac{\partial p(t,x)}{\partial t} = \sum_{n=1}^\infty \left(-\frac{\partial}{\partial x}\right)^n D^{(n)}(t,x) p(t,x)$
 %:::
-$$\frac{\partial p(t,x)}{\partial t} = \sum_{n=1}^\infty \left(-\frac{\partial}{\partial x}\right)^n D^{(n)}(t,x) p(t,x)$$  (eq-Kramers-Moyal)
+$$\frac{\partial p(t,x)}{\partial t} = \sum_{n=1}^\infty \left(-\frac{\partial}{\partial x}\right)^n D^{(n)}(t,x) p(t,x)\,.$$  (eq-Kramers-Moyal)
 
 ## Pawula theorem
 

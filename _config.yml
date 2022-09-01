@@ -47,6 +47,8 @@ parse:
 html:
   use_repository_button: true
   use_issues_button: true
+  comments:
+    hypothesis: true
 
 #######################################################################################
 # LaTeX-specific settings
