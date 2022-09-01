@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -408,16 +409,16 @@ title="Print to PDF"
 <p>where <span class="math notranslate nohighlight">\(J(x)\)</span> is the <strong>probability current</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Since total probability is conserved, it makes sense to think of probability as flowing one cell <span class="math notranslate nohighlight">\([x, x + dx)\)</span> to its neighbours.</p>
+<p>Since total probability is conserved, it makes sense to think of probability as flowing from one cell <span class="math notranslate nohighlight">\([x, x + dx)\)</span> to its neighbours.</p>
 </div>
 </section>
 <section id="stationary-solutions">
 <h2>Stationary solutions<a class="headerlink" href="#stationary-solutions" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="#Continuity-equation-form">continuity equation form</a> is especially useful for finding stationary solutions to the FPE. Example stationary solutions:</p>
 <ul class="simple">
-<li><p>Everything dies to a fixed point: <span class="math notranslate nohighlight">\(p(t, x) = δ(x-x_0)\)</span></p></li>
-<li><p>Frozen position (e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Galton_board">Galton board</a>)</p></li>
-<li><p>Circulation</p></li>
+<li><p>Everything dies to a fixed point: <span class="math notranslate nohighlight">\(p(t, x) = δ(x-x_0)\)</span>.</p></li>
+<li><p>Frozen position (e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Galton_board">Galton board</a>).</p></li>
+<li><p>Circulation.</p></li>
 </ul>
 <p>A stationary solution is defined by <span class="math notranslate nohighlight">\(\frac{\partial p(t, x)}{\partial t} = 0\)</span>. Then</p>
 <div class="math notranslate nohighlight">
@@ -428,20 +429,20 @@ J(x) &amp;= C
 \end{aligned}\end{split}\]</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Otherwise the normalization condition <span class="math notranslate nohighlight">\(\int p(t,x) dx = 1\)</span> cannot be satisfied.</p>
+<p>If <span class="math notranslate nohighlight">\(J(x) \neq 0\)</span>, the normalization condition <span class="math notranslate nohighlight">\(\int p(t,x) dx = 1\)</span> cannot be satisfied.</p>
 </aside>
 <p>If <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>, then the only non-trivial solution is <span class="math notranslate nohighlight">\(J(x) = 0\)</span>. Thus we reduce the problem to a much simpler ODE:</p>
 <div class="math notranslate nohighlight" id="equation-eq-j-0-ode">
 <span class="eqno">(8)<a class="headerlink" href="#equation-eq-j-0-ode" title="Permalink to this equation">#</a></span>\[
-D^{(1)}(x) p(t, x) + \nabla \left(D^{(2)} p(t, x)\right) = 0
+D^{(1)}(x) p(t, x) + \nabla \left(D^{(2)} p(t, x)\right) = 0 \,.
 \]</div>
 </section>
 <section id="going-further">
 <h2>Going further<a class="headerlink" href="#going-further" title="Permalink to this headline">#</a></h2>
-<p>Entire books are devoted to developing techniques for solving more difficult cases of the FPE</p>
+<p>Entire books are devoted to developing techniques for solving more difficult cases of the FPE; for example</p>
 <ul class="simple">
-<li><p><em>The Fokker-Planck equation: methods of solution and applications</em> <span id="id1">[<a class="reference internal" href="references.html#id3" title="H. Risken. The Fokker-Planck Equation: Methods of Solution and Applications. Number v. 18 in Springer Series in Synergetics. Springer-Verlag, New York, 2nd ed edition, 1996. ISBN 978-3-540-61530-9.">Risken, 1996</a>]</span></p></li>
-<li><p><em>Noise-induced transitions: theory and applications in physics, chemistry, and biology</em> <span id="id2">[<a class="reference internal" href="references.html#id4" title="Werner Horsthemke and René Lefever. Noise-Induced Transitions: Theory and Applications in Physics, Chemistry, and Biology. Number 15 in Springer Series in Synergetics. Springer, Berlin, 2. print edition, 2006. ISBN 978-3-540-11359-1.">Horsthemke and Lefever, 2006</a>]</span></p></li>
+<li><p><em>The Fokker-Planck equation: methods of solution and applications</em> <span id="id1">[<a class="reference internal" href="references.html#id3" title="H. Risken. The Fokker-Planck Equation: Methods of Solution and Applications. Number v. 18 in Springer Series in Synergetics. Springer-Verlag, New York, 2nd ed edition, 1996. ISBN 978-3-540-61530-9.">Risken, 1996</a>]</span>;</p></li>
+<li><p><em>Noise-induced transitions: theory and applications in physics, chemistry, and biology</em> <span id="id2">[<a class="reference internal" href="references.html#id4" title="Werner Horsthemke and René Lefever. Noise-Induced Transitions: Theory and Applications in Physics, Chemistry, and Biology. Number 15 in Springer Series in Synergetics. Springer, Berlin, 2. print edition, 2006. ISBN 978-3-540-11359-1.">Horsthemke and Lefever, 2006</a>]</span>.</p></li>
 </ul>
 </section>
 </section>

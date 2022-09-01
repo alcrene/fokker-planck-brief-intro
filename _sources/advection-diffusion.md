@@ -132,7 +132,7 @@ term is $D_{i}^{(1)}=u_{i}+\partial_{j}D_{ij}$.
 This is akin to the spurious drift depending on the interpretation
 of an underlying SDE. For the SDE $\dot{x}_{i}=h_{i}+g_{ij}\xi_{j}$
 where $\langle\xi_{i}(t)\rangle=0$ and $\langle\xi_{i}(t)\xi_{j}(t^{\prime})\rangle=2\delta_{ij}\delta(t-t^{\prime})$
-we have {cite:p}`Stratonovich89_16`
+we have (see {numref}`tab-fpe-sde-correspondence`, or {cite:t}`Stratonovich89_16`)
 \begin{equation}
 D_{i}^{(1)}=h_{i}+2\lambda g_{kj}\partial_{k}g_{ij},\qquad D_{ij}^{(2)}=g_{ik}g_{jk},
 \end{equation}

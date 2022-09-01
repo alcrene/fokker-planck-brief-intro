@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -418,7 +419,7 @@ p(t + τ, x) &amp;= \int p(t + τ, x | x', t) p(t, x') dx' \\
 \varphi(t,τ, u,x') &amp;= \int_{-\infty}^{\infty} e^{iu(x-x')} p(t+τ,x \mid t, x') dx \\
 &amp;= 1 + \sum_{n=1}^{\infty} \frac{(iu)^n}{n!} M_n(t,τ, x') \,;
 \end{aligned}\end{split}\]</div>
-<p>and invert it to get back the probability</p>
+<p>and apply the inverse transform to get back the probability</p>
 <div class="math notranslate nohighlight" id="equation-eq-p-fourier-inverse-fourier">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-p-fourier-inverse-fourier" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
 p(t+τ,x | t, x') &amp;= \frac{1}{2π} \int_{-\infty}^\infty e^{-iu(x-x')} \varphi(t,τ,u,x') du \\
@@ -444,7 +445,7 @@ p(t+τ,x | t, x') = \left[1 + \sum_{n=1}^{\infty} \left(\frac{\partial}{\partial
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 p(t + τ, x) - p(t, x) &amp;= \frac{\partial p(t, x)}{\partial t} τ + \mathcal{O}(τ^2) \\
-\int p(t + τ, x | x', t) p(t, x') dx - p(t, x) &amp;= p(t, x) - p(t, x) + \sum_{n=1}^{\infty} \left(\frac{\partial}{\partial x}\right)^n M_n(t,τ, x) p(t, x) \,.
+\int p(t + τ, x | x', t) p(t, x') dx' - p(t, x) &amp;= p(t, x) - p(t, x) + \sum_{n=1}^{\infty} \left(\frac{\partial}{\partial x}\right)^n M_n(t,τ, x) p(t, x) \,.
 \end{aligned}\end{split}\]</div>
 <p>We now <strong>assume that each moment can itself be expanded to first order</strong>:</p>
 <aside class="margin sidebar">
@@ -460,7 +461,7 @@ p(t + τ, x) - p(t, x) &amp;= \frac{\partial p(t, x)}{\partial t} τ + \mathcal{
 </div>
 <p>which leads to the <strong>Kramers-Moyal expansion</strong>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-kramers-moyal">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-kramers-moyal" title="Permalink to this equation">#</a></span>\[\frac{\partial p(t,x)}{\partial t} = \sum_{n=1}^\infty \left(-\frac{\partial}{\partial x}\right)^n D^{(n)}(t,x) p(t,x)\]</div>
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-kramers-moyal" title="Permalink to this equation">#</a></span>\[\frac{\partial p(t,x)}{\partial t} = \sum_{n=1}^\infty \left(-\frac{\partial}{\partial x}\right)^n D^{(n)}(t,x) p(t,x)\,.\]</div>
 </section>
 <section id="pawula-theorem">
 <h2>Pawula theorem<a class="headerlink" href="#pawula-theorem" title="Permalink to this headline">#</a></h2>

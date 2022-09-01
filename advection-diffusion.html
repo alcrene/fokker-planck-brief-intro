@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -498,9 +499,9 @@ term is <span class="math notranslate nohighlight">\(D_{i}^{(1)}=u_{i}+\partial_
 <p>This is akin to the spurious drift depending on the interpretation
 of an underlying SDE. For the SDE <span class="math notranslate nohighlight">\(\dot{x}_{i}=h_{i}+g_{ij}\xi_{j}\)</span>
 where <span class="math notranslate nohighlight">\(\langle\xi_{i}(t)\rangle=0\)</span> and <span class="math notranslate nohighlight">\(\langle\xi_{i}(t)\xi_{j}(t^{\prime})\rangle=2\delta_{ij}\delta(t-t^{\prime})\)</span>
-we have <span id="id2">[<a class="reference internal" href="references.html#id2" title="R. L. Stratonovich. Some Markov methods in the theory of stochastic processes in nonlinear dynamical systems, pages 16–71. Volume 1. Cambridge University Press, 1989. doi:10.1017/CBO9780511897818.004.">Stratonovich, 1989</a>]</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7f76da9-ec4a-4c57-b101-cdd45e0e672c">
-<span class="eqno">(17)<a class="headerlink" href="#equation-c7f76da9-ec4a-4c57-b101-cdd45e0e672c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+we have (see <a class="reference internal" href="link-to-sde.html#tab-fpe-sde-correspondence"><span class="std std-numref">Table 1</span></a>, or <span id="id2">Stratonovich [<a class="reference internal" href="references.html#id2" title="R. L. Stratonovich. Some Markov methods in the theory of stochastic processes in nonlinear dynamical systems, pages 16–71. Volume 1. Cambridge University Press, 1989. doi:10.1017/CBO9780511897818.004.">1989</a>]</span>)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6fac6699-75a2-456e-ae26-8949b5bb819e">
+<span class="eqno">(17)<a class="headerlink" href="#equation-6fac6699-75a2-456e-ae26-8949b5bb819e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 D_{i}^{(1)}=h_{i}+2\lambda g_{kj}\partial_{k}g_{ij},\qquad D_{ij}^{(2)}=g_{ik}g_{jk},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\in[0,1]\)</span> determines the interpretation: <span class="math notranslate nohighlight">\(\lambda=0\)</span>

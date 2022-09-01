@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -324,7 +325,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
-<p>In previous presentations [<a class="reference external" href="https://slides.com/alexrene/a-mathematically-offensive-introduction-to-stochastic-calculus">AR</a>, AvM] we talked about the stochastic differential equations (middle box in <a class="reference internal" href="#table-desc-levels"><span class="std std-numref">Fig. 1</span></a>). Examples:</p>
+<p>In previous presentations, we [<a class="reference external" href="https://slides.com/alexrene/a-mathematically-offensive-introduction-to-stochastic-calculus">AR</a>, AvM] talked about stochastic differential equations (middle box in <a class="reference internal" href="#table-desc-levels"><span class="std std-numref">Fig. 1</span></a>). Examples:</p>
 <aside class="sticky margin sidebar">
 <p class="sidebar-title"></p>
 <dl class="simple myst">
@@ -369,9 +370,9 @@ title="Print to PDF"
 \[ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_{i+1},X(t_{i+1}))ΔW(t_i)\hphantom{+ g(t_{i},X)}\]</div>
 </dd>
 </dl>
-<p>This ambiguity of convention arises because the infinitesimal limit of white noise is <em>mathematically</em> well-defined (for a given convention), but <em>non physical</em>.</p>
-<p>However, the distribution <span class="math notranslate nohighlight">\(p(X)\)</span> <em>is</em> physical, so a differential equation for <span class="math notranslate nohighlight">\(p(X)\)</span> should not suffer from ambiguity.
-The <strong>Fokker-Planck equation</strong> is such a differential equation.</p>
+<p>This ambiguity of convention arises because the infinitesimal limit of white noise is <em>mathematically</em> well-defined (within a given convention), but <em>non physical</em>.</p>
+<p>A full solution to a Langevin equation typically takes the form of a probability density function (PDF), which, if the system is Markovian, can be written as <span class="math notranslate nohighlight">\(p(t, X)\)</span>. Now, this PDF <em>is</em> physical, so a differential equation for <span class="math notranslate nohighlight">\(p(t, X)\)</span> should not suffer from ambiguity.
+The <strong>Fokker-Planck equation</strong> is such a differential equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fpe-intro">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-fpe-intro" title="Permalink to this equation">#</a></span>\[
 \frac{\partial p(t, x)}{\partial t} = - \sum_i \frac{\partial}{\partial x_i} \left[D_i^{(1)}(x) \, p(t,x)\right] + \sum_{i,j} \frac{\partial^2}{\partial x_i \partial x_j} \left[D_{ij}^{(2)}(x) \, p(t, x) \right]
@@ -386,9 +387,9 @@ Often, but not always, the initial condition is a Dirac δ.
 </figure>
 <p>A <strong>stochastic process</strong> is a generalization of a random variable. Intuitively, we assign to each <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span> a random variable (as suggested by <a class="reference internal" href="#fig-density-3-times"><span class="std std-numref">Fig. 2</span></a>). More precisely, to any countable set of times, the process associates a joint distribution. So if <span class="math notranslate nohighlight">\(x \in \mathbb{R^N}\)</span>,</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(p(t_1, x_1)\)</span> is a random variable on <span class="math notranslate nohighlight">\(\mathbb{R}^N\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(p(t_2, x_2, t_1, x_1)\)</span> is a random variable on <span class="math notranslate nohighlight">\(\mathbb{R}^{2N}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(p(t_3, x_3, t_2, x_2, t_1, x_1)\)</span> is a random variable on <span class="math notranslate nohighlight">\(\mathbb{R}^{3N}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p(t_1, x_1)\)</span> is the PDF of a random variable on <span class="math notranslate nohighlight">\(\mathbb{R}^N\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(t_2, x_2, t_1, x_1)\)</span> is the PDF of a random variable on <span class="math notranslate nohighlight">\(\mathbb{R}^{2N}\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(t_3, x_3, t_2, x_2, t_1, x_1)\)</span> is the PDF of a random variable on <span class="math notranslate nohighlight">\(\mathbb{R}^{3N}\)</span>;</p></li>
 <li><p>etc.</p></li>
 </ul>
 <p>One obtains a lower dimensional distribution by <em>marginalising</em> over certain time points:</p>

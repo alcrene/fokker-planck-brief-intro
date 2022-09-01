@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -347,7 +348,7 @@ title="Print to PDF"
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Itô</p></td>
-<td><p><span class="math notranslate nohighlight">\(ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\bigr)\hphantom{+ g(t_{i+1},X(t_{i+1}))}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(ΔX(t_i) = f(t_i,X(t_i))Δt + g(t_i,X(t_i))ΔW(t_i)\hphantom{+ g(t_{i+1},X(t_{i+1}))}\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p>Stratonovich</p></td>
 <td><p><span class="math notranslate nohighlight">\(\begin{aligned}
@@ -402,7 +403,7 @@ title="Print to PDF"
 &amp;= f(t_i) Δt + \hphantom{\frac{1}{2}} \frac{\partial g(t_i, X(t_i))}{\partial x} g(t_i, X(t_i)) Δt \\
 \langle ΔX(t_i)^2 \rangle &amp;= g(t_i, X(t_i))^2 Δt
 \end{aligned}\end{split}\]</div>
-<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-eq-kramers-coeff-to-moments">(7)</a>, we get the correspondences listed in <a class="reference internal" href="#tab-fpe-sde-correspondence"><span class="std std-numref">Table 1</span></a></p>
+<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-eq-kramers-coeff-to-moments">(7)</a>, we get the correspondences listed in <a class="reference internal" href="#tab-fpe-sde-correspondence"><span class="std std-numref">Table 1</span></a>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition caution">
